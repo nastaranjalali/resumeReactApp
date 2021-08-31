@@ -7,8 +7,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+این یک متن فارسی است        </p>
+          <h6>this is an english header</h6>
         <a
           className="App-link"
           href="https://reactjs.org"
