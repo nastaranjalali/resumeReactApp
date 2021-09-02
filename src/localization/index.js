@@ -15,21 +15,29 @@ const getDirection = () => {
 export {getDirection}
 
 const fonts = {
-    fa : "IRANSans",
-    en : 'Mulish'
+    fa: "IRANSans",
+    en: 'Mulish'
 }
 
-const getFonts = ()=>{
+const getFonts = () => {
     return fonts[lang]
 }
 
 export {getFonts}
 
 const translate = {
-    fa : fa_ir,
-    en : en_us
+    fa: fa_ir,
+    en: en_us
 }
-const getTranslate = ()=>{
+const getTranslate = () => {
     return translate[lang]
 }
 export {getTranslate}
+
+const changeLang = (lang) => {
+    if (localStorage.getItem("lang") !== lang)
+        localStorage.setItem("lang", "")
+    else return
+    window.location.reload()
+}
+export {changeLang}

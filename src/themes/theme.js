@@ -1,8 +1,8 @@
 import palette from "./palette";
-import {createMuiTheme} from '@material-ui/core/styles'
+import {createTheme} from '@material-ui/core/styles'
 import {getDirection, getFonts} from "../localization/index"
 
-const theme = createMuiTheme(
+const theme = createTheme(
     {
         palette: palette,
         direction: getDirection(),
@@ -55,6 +55,15 @@ const theme = createMuiTheme(
                 fontSize: 18,
                 lineHeight: "1.8rem",
                 color:"#636363"
+            },
+            body2: {
+                fontWeight: 600,
+                fontFamily: getFonts(),
+                fontSize: ".94rem",
+                lineHeight: "1.8rem",
+                color:"#e6e6e6",
+                textAlign: "center",
+                letterSpacing:1,
             },
             button:{
                 fontWeight: 400,
