@@ -1,17 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -20,7 +16,13 @@ import profilePhoto from "../assets/images/profile.jpg"
 import {getTranslate, changeLang, lang} from "../localization";
 import {Button} from "@material-ui/core";
 import LanguageIcon from '@material-ui/icons/Language';
-
+import Home from './homeScreen';
+import About from './AboutScreen';
+import Resume from './resumeScreen';
+import portfolios from './portfoliosScreen';
+import Contact from './contactScreen';
+import styles from '../assets/CSS/index.css'
+import Portfolios from "./portfoliosScreen";
 
 const drawerWidth = 260;
 const translate = getTranslate()
@@ -76,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
     },
     bottomDrawer: {
-        borderTop: "1px solid #37374e",
+        // borderTop: "1px solid #37374e",
         flexGrow: "1",
         display: "flex",
         flexDirection: "row",
@@ -105,7 +107,10 @@ const useStyles = makeStyles((theme) => ({
             color: "#e6e6e6"
         }
     },
-
+    listitem: {
+        paddingRight: 0,
+        paddingLeft: 0
+    },
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
@@ -117,7 +122,8 @@ function ResponsiveDrawer(props) {
     const {window} = props;
     const classes = useStyles();
     const theme = useTheme();
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const [page, setPage] = useState(0);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -138,37 +144,67 @@ function ResponsiveDrawer(props) {
                         width: "100%"
                     }}>
 
-                        <ListItem button>
+                        <ListItem onClick={() => setPage(0)} style={{
+                            position: "relative",
+                            paddingLeft: 0,
+                            paddingRight: 0,
+                            backgroundColor: page === 0 ? "#e52764" : "transparent"
+                        }} className={"listItem"} button>
                             <ListItemText disableTypography={true} children={
                                 <Typography variant="body2">{translate.home}</Typography>
                             }/>
+                            <div className={"overlay"}/>
+
                         </ListItem>
-                        <ListItem button>
+                        <ListItem onClick={() => setPage(1)} style={{
+                            position: "relative",
+                            paddingLeft: 0,
+                            backgroundColor: page === 1 ? "#e52764" : "transparent"
+                        }} className={"listItem"} button>
                             <ListItemText disableTypography={true} children={
                                 <Typography variant="body2">{translate.about}</Typography>
                             }/>
+                            <div className={"overlay"}/>
                         </ListItem>
-                        <ListItem button>
+                        <ListItem onClick={() => setPage(2)} style={{
+                            position: "relative",
+                            paddingLeft: 0,
+                            backgroundColor: page === 2 ? "#e52764" : "transparent"
+                        }} className={"listItem"} button>
                             <ListItemText disableTypography={true} children={
                                 <Typography variant="body2">{translate.resume}</Typography>
                             }/>
+                            <div className={"overlay"}/>
+
                         </ListItem>
-                        <ListItem button>
+                        <ListItem onClick={() => setPage(3)} style={{
+                            position: "relative",
+                            paddingLeft: 0,
+                            backgroundColor: page === 3 ? "#e52764" : "transparent"
+                        }} className={"listItem"} button>
                             <ListItemText disableTypography={true} children={
                                 <Typography variant="body2">{translate.portfolios}</Typography>
                             }/>
+                            <div className={"overlay"}/>
+
                         </ListItem>
-                        <ListItem button>
+                        <ListItem onClick={() => setPage(4)} style={{
+                            position: "relative",
+                            paddingLeft: 0,
+                            backgroundColor: page === 4 ? "#e52764" : "transparent"
+                        }} className={"listItem"} button>
                             <ListItemText disableTypography={true} children={
                                 <Typography variant="body2">{translate.contact}</Typography>
                             }/>
+                            <div className={"overlay"}/>
+
                         </ListItem>
                     </List>
                 </div>
                 <div className={classes.bottomDrawer}>
                     <Button
 
-                        className={[classes.button, lang === 'en' ? classes.inActiveButton :classes.activeButton ].join(' ')}
+                        className={[classes.button, lang === 'en' ? classes.inActiveButton : classes.activeButton].join(' ')}
                         onClick={() => changeLang("en")}
                         endIcon={lang === "fa" ? <LanguageIcon/> : undefined}
                     >
@@ -176,7 +212,7 @@ function ResponsiveDrawer(props) {
                     </Button>
                     <Button
 
-                        className={[classes.button, lang === 'fa' ? classes.inActiveButton :classes.activeButton].join(' ')}
+                        className={[classes.button, lang === 'fa' ? classes.inActiveButton : classes.activeButton].join(' ')}
                         onClick={() => changeLang("fa")}
                         endIcon={lang === "en" ? <LanguageIcon/> : undefined}
                         style={{
@@ -192,6 +228,24 @@ function ResponsiveDrawer(props) {
     ;
 
     const container = window !== undefined ? () => window().document.body : undefined;
+    const changePage = () => {
+        switch (page) {
+            case 0:
+                return <Home/>
+            case 1:
+                return <About/>
+            case 2:
+                return <Resume/>
+            case 3:
+                return <Portfolios/>
+            case 4:
+                return <Contact/>
+            default:
+                return <Home/>
+
+
+        }
+    }
 
     return (
         <div className={classes.root}>
@@ -205,7 +259,7 @@ function ResponsiveDrawer(props) {
                     className={classes.menuButton}
                     style={{
                         margin: "10px",
-                        fontSize:"2.5 rem"
+                        fontSize: "2.5 rem"
 
                     }}
                 >
@@ -246,8 +300,7 @@ function ResponsiveDrawer(props) {
                 </Hidden>
             </nav>
             <main className={classes.content}>
-                <div className={classes.toolbar}/>
-
+                {changePage()}
             </main>
         </div>
     );
