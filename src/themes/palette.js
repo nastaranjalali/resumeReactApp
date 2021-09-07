@@ -1,6 +1,6 @@
 export default {
     primary :{
-        main : "#ff5487",
+        main : "#e52764",
         textContent : "#0a0a1f"
     },
     secondary:{

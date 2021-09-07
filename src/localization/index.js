@@ -36,7 +36,7 @@ export {getTranslate}
 
 const changeLang = (lang) => {
     if (localStorage.getItem("lang") !== lang)
-        localStorage.setItem("lang", "")
+        localStorage.setItem("lang", lang)
     else return
     window.location.reload()
 }
