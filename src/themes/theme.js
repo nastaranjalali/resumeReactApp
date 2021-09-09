@@ -11,50 +11,50 @@ const theme = createTheme(
             h1: {
                 fontWeight: 700,
                 fontFamily: getFonts(),
-                fontSize: "3.2857 rem",
-                lineHeight: "4 rem"
+                fontSize: "2.8rem",
+                lineHeight: "4rem"
             },
             h2: {
                 fontWeight: 700,
                 fontFamily: getFonts(),
-                fontSize: "2.57 rem",
-                lineHeight: "3.2857 rem"
+                fontSize: "2.57rem",
+                lineHeight: "3.2857rem"
             },
             h3: {
                 fontWeight: 600,
                 fontFamily: getFonts(),
-                fontSize: "2 rem",
-                lineHeight: "2.7 rem"
+                fontSize: "2rem",
+                lineHeight: "2.7rem"
             }, h4: {
                 fontWeight: 600,
                 fontFamily: getFonts(),
-                fontSize: "1.71 rem",
-                lineHeight: "2.43 rem"
+                fontSize: "1.71rem",
+                lineHeight: "2.43rem"
             }, h5: {
                 fontWeight: 600,
                 fontFamily: getFonts(),
-                fontSize: "1.43 rem",
-                lineHeight: "2.14 rem"
+                fontSize: "1.43rem",
+                lineHeight: "2.14rem"
             },
             h6: {
                 fontWeight: 600,
                 fontFamily: getFonts(),
-                fontSize: "1.14 rem",
+                fontSize: "1.14rem",
                 lineHeight: "1.857rem"
             },
             subtitle1: {
                 fontWeight: 400,
                 fontFamily: getFonts(),
-                fontSize: "1.25 rem",
+                fontSize: "1.25rem",
                 lineHeight: "2rem",
                 marginTop: 15
             },
             body1: {
                 fontWeight: 400,
                 fontFamily: getFonts(),
-                fontSize: 18,
+                fontSize: 22,
                 lineHeight: "1.8rem",
-                color:"#636363"
+                color:"#37374e"
             },
             body2: {
                 fontWeight: 600,

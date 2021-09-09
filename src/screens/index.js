@@ -9,9 +9,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles, useTheme} from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import profilePhoto from "../assets/images/profile.jpg"
 import {getTranslate, changeLang, lang} from "../localization";
 import {Button} from "@material-ui/core";
@@ -19,7 +18,6 @@ import LanguageIcon from '@material-ui/icons/Language';
 import Home from './homeScreen';
 import About from './AboutScreen';
 import Resume from './resumeScreen';
-import portfolios from './portfoliosScreen';
 import Contact from './contactScreen';
 import styles from '../assets/CSS/index.css'
 import Portfolios from "./portfoliosScreen";
@@ -50,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
     drawerPaper: {
         width: drawerWidth,
         backgroundColor: "#0f0f24",
@@ -107,10 +104,6 @@ const useStyles = makeStyles((theme) => ({
             color: "#e6e6e6"
         }
     },
-    listitem: {
-        paddingRight: 0,
-        paddingLeft: 0
-    },
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
@@ -121,7 +114,6 @@ const useStyles = makeStyles((theme) => ({
 function ResponsiveDrawer(props) {
     const {window} = props;
     const classes = useStyles();
-    const theme = useTheme();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [page, setPage] = useState(0);
 
@@ -144,7 +136,7 @@ function ResponsiveDrawer(props) {
                         width: "100%"
                     }}>
 
-                        <ListItem onClick={() => setPage(0)} style={{
+                        <ListItem onClick={() => {setPage(0);setMobileOpen(false)}} style={{
                             position: "relative",
                             paddingLeft: 0,
                             paddingRight: 0,
@@ -156,19 +148,24 @@ function ResponsiveDrawer(props) {
                             <div className={"overlay"}/>
 
                         </ListItem>
-                        <ListItem onClick={() => setPage(1)} style={{
+                        <ListItem onClick={() => {setPage(1);setMobileOpen(false)}} style={{
                             position: "relative",
                             paddingLeft: 0,
-                            backgroundColor: page === 1 ? "#e52764" : "transparent"
+                            paddingRight: 0,
+
+                            backgroundColor: page === 1 ? "#e52764" : "transparent",
+
                         }} className={"listItem"} button>
                             <ListItemText disableTypography={true} children={
                                 <Typography variant="body2">{translate.about}</Typography>
                             }/>
                             <div className={"overlay"}/>
                         </ListItem>
-                        <ListItem onClick={() => setPage(2)} style={{
+                        <ListItem onClick={() => {setPage(2);setMobileOpen(false)}} style={{
                             position: "relative",
                             paddingLeft: 0,
+                            paddingRight: 0,
+
                             backgroundColor: page === 2 ? "#e52764" : "transparent"
                         }} className={"listItem"} button>
                             <ListItemText disableTypography={true} children={
@@ -177,9 +174,11 @@ function ResponsiveDrawer(props) {
                             <div className={"overlay"}/>
 
                         </ListItem>
-                        <ListItem onClick={() => setPage(3)} style={{
+                        <ListItem onClick={() => {setPage(3);setMobileOpen(false)}} style={{
                             position: "relative",
                             paddingLeft: 0,
+                            paddingRight: 0,
+
                             backgroundColor: page === 3 ? "#e52764" : "transparent"
                         }} className={"listItem"} button>
                             <ListItemText disableTypography={true} children={
@@ -188,9 +187,11 @@ function ResponsiveDrawer(props) {
                             <div className={"overlay"}/>
 
                         </ListItem>
-                        <ListItem onClick={() => setPage(4)} style={{
+                        <ListItem onClick={() => {setPage(4);setMobileOpen(false)}} style={{
                             position: "relative",
                             paddingLeft: 0,
+                            paddingRight: 0,
+
                             backgroundColor: page === 4 ? "#e52764" : "transparent"
                         }} className={"listItem"} button>
                             <ListItemText disableTypography={true} children={
@@ -250,7 +251,7 @@ function ResponsiveDrawer(props) {
     return (
         <div className={classes.root}>
             <CssBaseline/>
-            <Toolbar>
+
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
@@ -259,7 +260,8 @@ function ResponsiveDrawer(props) {
                     className={classes.menuButton}
                     style={{
                         margin: "10px",
-                        fontSize: "2.5 rem"
+                        fontSize: "2.5 rem",
+                        position:"fixed"
 
                     }}
                 >
@@ -268,7 +270,6 @@ function ResponsiveDrawer(props) {
                 <Typography variant="h6" noWrap>
 
                 </Typography>
-            </Toolbar>
             <nav className={classes.drawer} aria-label="mailbox folders">
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Hidden smUp implementation="css">
@@ -299,7 +300,7 @@ function ResponsiveDrawer(props) {
                     </Drawer>
                 </Hidden>
             </nav>
-            <main className={classes.content}>
+            <main className={classes.content} style={{padding:0}}>
                 {changePage()}
             </main>
         </div>

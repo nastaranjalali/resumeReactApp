@@ -16,7 +16,7 @@ export {getDirection}
 
 const fonts = {
     fa: "IRANSans",
-    en: 'Mulish'
+    en: 'Ubuntu'
 }
 
 const getFonts = () => {
