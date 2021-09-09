@@ -21,6 +21,7 @@ import Resume from './resumeScreen';
 import Contact from './contactScreen';
 import styles from '../assets/CSS/index.css'
 import Portfolios from "./portfoliosScreen";
+import MenuItem from "../components/MenuItem";
 
 const drawerWidth = 260;
 const translate = getTranslate()
@@ -120,6 +121,12 @@ function ResponsiveDrawer(props) {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+    const setMobileOpenFalse = () =>{
+        setMobileOpen(false)
+    }
+    const setNewPage = (num) =>{
+        setPage(num)
+    }
 
     const drawer = (
             <>
@@ -135,71 +142,12 @@ function ResponsiveDrawer(props) {
                         justifyContent: "center",
                         width: "100%"
                     }}>
+                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={()=>setNewPage(0)} page={page} text={translate.home} num={0} />
+                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={()=>setNewPage(1)} page={page} text={translate.about} num={1} />
+                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={()=>setNewPage(2)} page={page} text={translate.resume} num={2} />
+                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={()=>setNewPage(3)} page={page} text={translate.portfolios} num={3} />
+                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={()=>setNewPage(4)} page={page} text={translate.contact} num={4} />
 
-                        <ListItem onClick={() => {setPage(0);setMobileOpen(false)}} style={{
-                            position: "relative",
-                            paddingLeft: 0,
-                            paddingRight: 0,
-                            backgroundColor: page === 0 ? "#e52764" : "transparent"
-                        }} className={"listItem"} button>
-                            <ListItemText disableTypography={true} children={
-                                <Typography variant="body2">{translate.home}</Typography>
-                            }/>
-                            <div className={"overlay"}/>
-
-                        </ListItem>
-                        <ListItem onClick={() => {setPage(1);setMobileOpen(false)}} style={{
-                            position: "relative",
-                            paddingLeft: 0,
-                            paddingRight: 0,
-
-                            backgroundColor: page === 1 ? "#e52764" : "transparent",
-
-                        }} className={"listItem"} button>
-                            <ListItemText disableTypography={true} children={
-                                <Typography variant="body2">{translate.about}</Typography>
-                            }/>
-                            <div className={"overlay"}/>
-                        </ListItem>
-                        <ListItem onClick={() => {setPage(2);setMobileOpen(false)}} style={{
-                            position: "relative",
-                            paddingLeft: 0,
-                            paddingRight: 0,
-
-                            backgroundColor: page === 2 ? "#e52764" : "transparent"
-                        }} className={"listItem"} button>
-                            <ListItemText disableTypography={true} children={
-                                <Typography variant="body2">{translate.resume}</Typography>
-                            }/>
-                            <div className={"overlay"}/>
-
-                        </ListItem>
-                        <ListItem onClick={() => {setPage(3);setMobileOpen(false)}} style={{
-                            position: "relative",
-                            paddingLeft: 0,
-                            paddingRight: 0,
-
-                            backgroundColor: page === 3 ? "#e52764" : "transparent"
-                        }} className={"listItem"} button>
-                            <ListItemText disableTypography={true} children={
-                                <Typography variant="body2">{translate.portfolios}</Typography>
-                            }/>
-                            <div className={"overlay"}/>
-
-                        </ListItem>
-                        <ListItem onClick={() => {setPage(4);setMobileOpen(false)}} style={{
-                            position: "relative",
-                            paddingLeft: 0,
-                            paddingRight: 0,
-
-                            backgroundColor: page === 4 ? "#e52764" : "transparent"
-                        }} className={"listItem"} button>
-                            <ListItemText disableTypography={true} children={
-                                <Typography variant="body2">{translate.contact}</Typography>
-                            }/>
-                            <div className={"overlay"}/>
-
-                        </ListItem>
                     </List>
                 </div>
                 <div className={classes.bottomDrawer}>

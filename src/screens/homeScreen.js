@@ -7,6 +7,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import theme from "../themes/theme";
+import {getTranslate} from "../localization";
 
 
 const useStyles = makeStyles({
@@ -52,12 +53,13 @@ const useStyles = makeStyles({
 
 function Home() {
     const classes = useStyles()
+    const translate = getTranslate()
     return (
         <div className={classes.root}>
             <div className={"bg"}>
             </div>
-            <Typography variant={"h1"} style={{marginBottom:"15px"}}>Hi, I am <span className={classes.name}>Nastaran Jalali</span></Typography>
-            <Typography variant={"body1"} style={{marginBottom:"15px"}}>I am a frontend web developer</Typography>
+            <Typography variant={"h1"} style={{marginBottom:"15px"}}>{translate.hi1}<span className={classes.name}>{translate.name}</span>{translate.hi2}</Typography>
+            <Typography variant={"body1"} style={{marginBottom:"15px"}}>{translate.homeDesc}</Typography>
             <div className={classes.btnContainer}>
                 <IconButton className={classes.iconBTN}>
                     <LinkedInIcon className={classes.Icon}/>
