@@ -7,7 +7,19 @@ export default {
     contact : "CONTACT",
     hi1:"Hi, I am ",
     hi2 :"",
-    homeDesc:"I am a frontend web developer",
-    aboutMe:"ABOUT ME"
+    homeDesc:"I am a frontend web developer who is bluh bluh bluh I just want it to be long enough to take multiple lines in both languages ",
+    aboutMe:"ABOUT ME",
+    fullName:"Full Name",
+    age:"Age",
+    nationality:"Nationality",
+    languages:"Languages",
+    phone:"Phone",
+    years:"years",
+    iranian:"Iranian",
+    persian:"Persian",
+    english:"English",
+    german:"German",
+    services:"Services",
+    downloadcv:"Download CV",
 
 }

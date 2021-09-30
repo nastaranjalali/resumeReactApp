@@ -58,7 +58,7 @@ function Home() {
             <div className={"bg"}>
             </div>
             <Typography variant={"h1"} style={{marginBottom:"15px"}}>{translate.hi1}<span className={classes.name}>{translate.name}</span>{translate.hi2}</Typography>
-            <Typography variant={"body1"} style={{marginBottom:"15px"}}>{translate.homeDesc}</Typography>
+            <Typography variant={"body1"} style={{marginBottom:"15px",width:"60%"}}>{translate.homeDesc}</Typography>
             <div className={classes.btnContainer}>
                 <IconButton className={classes.iconBTN}>
                     <LinkedInIcon className={classes.Icon}/>
