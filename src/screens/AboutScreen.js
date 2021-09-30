@@ -5,6 +5,10 @@ import {getTranslate} from "../localization";
 import Title from "../components/Title";
 import aboutMePic from "../assets/images/aboutMePic.jpg"
 import {Button, Grid, Typography} from "@material-ui/core";
+import Service from "../components/Service";
+import PaletteIcon from '@material-ui/icons/Palette';
+import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
+import CodeIcon from '@material-ui/icons/Code';
 
 const useStyles = makeStyles({
     root: {
@@ -12,7 +16,7 @@ const useStyles = makeStyles({
         height: "100vh",
 
     },
-    sectionContainer: {},
+
     picContainer: {
         // backgroundColor:"#883",
         position: "relative",
@@ -56,10 +60,19 @@ const useStyles = makeStyles({
         minWidth: 130,
         display: "inline-block"
     },
-    cvButton:{
-        '&:hover':{
+    cvButton: {
+        '&:hover': {
             backgroundColor: "rgba(191, 23, 77, 0.6)",
         }
+    },
+    servicesContainer:{
+        width:"100%",
+        display:"flex",
+        flexDirection:"row",
+    },
+    icon:{
+        fontSize:"3.5rem",
+        color: "rgba(229,39,100,1)"
     }
 
 
@@ -72,10 +85,10 @@ function About() {
         <Grid className={classes.root}>
             <Title text={translate.aboutMe}/>
             <Grid container direction={"row"} className={classes.sectionContainer}>
-                <Grid xs={12} md={6} className={classes.picContainer}>
+                <Grid xs={12} lg={6} className={classes.picContainer}>
                     <img src={aboutMePic} alt="" className={classes.aboutMePic}/>
                 </Grid>
-                <Grid xs={12} md={6} className={classes.textContainer}>
+                <Grid xs={12} lg={6} className={classes.textContainer}>
                     <Typography variant={"h3"} style={{marginBottom: "15px"}}>{translate.hi1}<span
                         className={classes.name}>{translate.name}</span>{translate.hi2}</Typography>
                     <Typography variant={"body1"} style={{marginBottom: "15px"}}>{translate.homeDesc}</Typography>
@@ -105,10 +118,18 @@ function About() {
                 </Grid>
             </Grid>
             <Title text={translate.services}/>
+            <Grid container direction={"row"} className={classes.servicesContainer}>
+                <Service title={translate.webDesign} desc={translate.designDesc} icon={ <PaletteIcon className={classes.icon} />} />
+                <Service title={translate.webDevelopment} desc={translate.developDesc} icon={<CodeIcon className={classes.icon}/>}/>
+                <Service title={translate.mobileApplication} desc={translate.mobileAppDesc} icon={<PhoneIphoneIcon className={classes.icon}/>}/>
+
+            </Grid>
+
         </Grid>
 
 
     );
 }
+
 
 export default About;

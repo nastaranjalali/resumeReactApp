@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import profilePhoto from "../assets/images/profile.jpg"
 import {getTranslate, changeLang, lang} from "../localization";
-import {Button} from "@material-ui/core";
+import {Button, Fade} from "@material-ui/core";
 import LanguageIcon from '@material-ui/icons/Language';
 import Home from './homeScreen';
 import About from './AboutScreen';
@@ -117,16 +117,26 @@ function ResponsiveDrawer(props) {
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [page, setPage] = useState(0);
+    const [changed, setChanged] = useState(true);
+
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-    const setMobileOpenFalse = () =>{
+    const setMobileOpenFalse = () => {
         setMobileOpen(false)
     }
-    const setNewPage = (num) =>{
+    const setNewPage = (num) => {
         setPage(num)
     }
+    useEffect(() => {
+        setChanged((prev) => !prev)
+        setTimeout(function () {
+            setChanged((prev) => !prev)
+        }, 300)
+
+    }, [page]) // <-- here put the parameter to listen
+
 
     const drawer = (
             <>
@@ -142,11 +152,16 @@ function ResponsiveDrawer(props) {
                         justifyContent: "center",
                         width: "100%"
                     }}>
-                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={()=>setNewPage(0)} page={page} text={translate.home} num={0} />
-                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={()=>setNewPage(1)} page={page} text={translate.about} num={1} />
-                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={()=>setNewPage(2)} page={page} text={translate.resume} num={2} />
-                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={()=>setNewPage(3)} page={page} text={translate.portfolios} num={3} />
-                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={()=>setNewPage(4)} page={page} text={translate.contact} num={4} />
+                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(0)} page={page}
+                                  text={translate.home} num={0}/>
+                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(1)} page={page}
+                                  text={translate.about} num={1}/>
+                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(2)} page={page}
+                                  text={translate.resume} num={2}/>
+                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(3)} page={page}
+                                  text={translate.portfolios} num={3}/>
+                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(4)} page={page}
+                                  text={translate.contact} num={4}/>
 
                     </List>
                 </div>
@@ -200,24 +215,24 @@ function ResponsiveDrawer(props) {
         <div className={classes.root}>
             <CssBaseline/>
 
-                <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    edge="start"
-                    onClick={handleDrawerToggle}
-                    className={classes.menuButton}
-                    style={{
-                        margin: "10px",
-                        fontSize: "2.5 rem",
-                        position:"fixed"
+            <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                className={classes.menuButton}
+                style={{
+                    margin: "10px",
+                    fontSize: "2.5 rem",
+                    position: "fixed"
 
-                    }}
-                >
-                    <MenuIcon/>
-                </IconButton>
-                <Typography variant="h6" noWrap>
+                }}
+            >
+                <MenuIcon/>
+            </IconButton>
+            <Typography variant="h6" noWrap>
 
-                </Typography>
+            </Typography>
             <nav className={classes.drawer} aria-label="mailbox folders">
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Hidden smUp implementation="css">
@@ -248,9 +263,17 @@ function ResponsiveDrawer(props) {
                     </Drawer>
                 </Hidden>
             </nav>
-            <main className={classes.content} style={{padding:0}}>
-                {changePage()}
-            </main>
+            <Fade in={changed} timeout={{
+                appear: 500,
+                enter: 300,
+                exit: 0,
+            }} >
+                <main className={classes.content} style={{padding: 0}}>
+
+                    {changePage()}
+
+                </main>
+            </Fade>
         </div>
     );
 }

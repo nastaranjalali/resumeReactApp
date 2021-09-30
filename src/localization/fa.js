@@ -21,5 +21,11 @@ export default {
     german:"آلمانی",
     services:"خدمات",
     downloadcv:"دانلود رزومه",
+    webDesign:"طراحی وب",
+    webDevelopment:"توسعه وب",
+    mobileApplication:"اپلیکیشن موبایل",
+    designDesc:"Implementing user interfaces with React, React Router, and Material UI, CSS, JSS, and Bootstrap for styling. Creating responsive websites",
+    developDesc:"there's nothing special right now but I promise you there will be :') probably GO or something",
+    mobileAppDesc:"there's nothing special right now but I promise you there will be :') I mean it has to be 3 services I'm not very interested in mobile apps though"
 
 }
