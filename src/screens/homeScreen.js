@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import {IconButton, Typography} from "@material-ui/core";
 import styles from "../assets/CSS/bgEffect.css"
-import {LinkedIn} from "@material-ui/icons";
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TelegramIcon from '@material-ui/icons/Telegram';

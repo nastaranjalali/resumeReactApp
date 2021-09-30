@@ -5,8 +5,9 @@ export default {
     resume : "RESUME",
     portfolios : "PORTFOLIOS",
     contact : "CONTACT",
-    hi1:"Hi, I am",
+    hi1:"Hi, I am ",
     hi2 :"",
-    homeDesc:"I am a frontend web developer"
+    homeDesc:"I am a frontend web developer",
+    aboutMe:"ABOUT ME"
 
 }
