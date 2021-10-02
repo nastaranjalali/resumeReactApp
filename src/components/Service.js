@@ -6,11 +6,13 @@ import {Grid} from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
+        paddingLeft:10
     },
     service:{
         width:"100%",
         padding:20,
         margin:20,
+
         backgroundColor:"#0f0f24",
         border:"1px solid #37374e",
         borderTop:"8px solid #37374e",

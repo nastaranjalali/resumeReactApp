@@ -54,7 +54,7 @@ const theme = createTheme(
                 fontFamily: getFonts(),
                 fontSize: getDirection()==="rtl"?20:22,
                 lineHeight: "1.81rem",
-                color:"#37374e"
+                color:"#63637e"
             },
             body2: {
                 fontWeight: 600,

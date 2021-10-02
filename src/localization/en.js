@@ -26,5 +26,15 @@ export default {
     mobileApplication: "Mobile Application",
     designDesc: "Implementing user interfaces with React, React Router, and Material UI, CSS, JSS, and Bootstrap for styling. Creating responsive websites",
     developDesc: "there's nothing special right now but I promise you there will be :') probably GO or something",
-    mobileAppDesc: "there's nothing special right now but I promise you there will be :') I mean it has to be 3 services I'm not very interested in mobile apps though"
+    mobileAppDesc: "there's nothing special right now but I promise you there will be :') I mean it has to be 3 services I'm not very interested in mobile apps though",
+    mySkills: "My Skills",
+    html5 : "HTML5",
+    css3: "CSS3",
+    js:"JavaScript",
+    jquery:"JQuery",
+    reactJS:"React js",
+    bootstrap:"Bootstrap",
+    materialUI:"MaterialUI",
+    photoshop:"PhotoShop",
+
 }
