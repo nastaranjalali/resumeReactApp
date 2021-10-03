@@ -36,5 +36,23 @@ export default {
     bootstrap:"Bootstrap",
     materialUI:"MaterialUI",
     photoshop:"PhotoShop",
+    workExperience :"تجربه\u200cهای کاری",
+    boardgamePresenter:"گیم مستر",
+    frontendDeveloper :"توسعه\u200cدهنده سمت کاربر",
+    jobFirstYear:"1399 - 1400",
+    jobFirstTitle:"گیم مستر",
+    jobFirstCompany:"گروه بردار",
+    jobFirstDesc:"Game presenter in bordar group, I have mastered a lot of board games and I can win all of you ",
+    educationalQualification:"سوابق تحصیلی",
+    firstDegreeYear:"1392 - 1398",
+    firstDegree:"دیپلم رشته ریاضی و فیزیک",
+    firstSchoolName:"مدرسه فرزانگان (سمپاد)",
+    firstLocation:"ایران، ساوه",
+    secondDegreeYear:"1398 - 1402",
+    secondDegree:"کارشناسی مهندسی کامپیوتر",
+    secondSchoolName:"دانشگاه خوارزمی",
+    secondLocation:"ایران، کرج",
+
+
 
 }

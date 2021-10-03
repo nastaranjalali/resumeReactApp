@@ -10,6 +10,9 @@ import PaletteIcon from '@material-ui/icons/Palette';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 import CodeIcon from '@material-ui/icons/Code';
 import Skill from "../components/Skill";
+import Experience from "../components/Experience";
+import WorkIcon from '@material-ui/icons/Work';
+import SchoolIcon from '@material-ui/icons/School';
 
 const useStyles = makeStyles({
     root: {
@@ -17,7 +20,16 @@ const useStyles = makeStyles({
         height: "100vh",
 
     },
-    skillContainer:{
+    experienceContainer:{
+        paddingLeft:40,
+        paddingBottom:60,
+
+    },
+    icon:{
+        fontSize:"2.4rem",
+    },
+    experienceTitle:{
+        marginLeft:15,
 
     }
 
@@ -47,8 +59,19 @@ function ResumeScreen() {
                     <Skill title={translate.photoshop} val={45}/>
                 </Grid>
             </Grid>
-            <Title text={translate.services}/>
-            <Grid container direction={"row"} className={classes.servicesContainer}>
+            <Title text={translate.resume}/>
+            <Grid container direction={"row"} className={classes.experienceContainer}>
+                <WorkIcon className={classes.icon}/>
+                <Typography className={classes.experienceTitle} variant={"h4"}>{translate.workExperience}</Typography>
+                <Experience year={translate.jobFirstYear} company={translate.jobFirstCompany} jobTitle={translate.jobFirstTitle} desc={translate.jobFirstDesc} />
+                <Experience year={translate.jobSecondYear} company={translate.jobSecondCompany} jobTitle={translate.jobSecondTitle} desc={translate.jobSecondDesc} />
+
+            </Grid>
+            <Grid container direction={"row"} className={classes.experienceContainer}>
+                <SchoolIcon className={classes.icon}/>
+                <Typography className={classes.experienceTitle} variant={"h4"}>{translate.educationalQualification}</Typography>
+                <Experience year={translate.firstDegreeYear} company={translate.firstDegree} jobTitle={translate.firstSchoolName} desc={translate.firstLocation} />
+                <Experience year={translate.secondDegreeYear} company={translate.secondDegree} jobTitle={translate.secondSchoolName} desc={translate.secondLocation} />
 
             </Grid>
 

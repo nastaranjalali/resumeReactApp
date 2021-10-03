@@ -36,5 +36,27 @@ export default {
     bootstrap:"Bootstrap",
     materialUI:"MaterialUI",
     photoshop:"PhotoShop",
+    workExperience :"Work Experience",
+    boardgamePresenter:"Board Game Presenter",
+    frontendDeveloper :"Frontend Developer",
+    jobFirstYear:"2020 - 2021",
+    jobFirstTitle:"Board Game Presenter",
+    jobFirstCompany:"Bordar Group",
+    jobFirstDesc:"Game presenter in bordar group, I have mastered a lot of board games and I can win all of you ",
+    jobSecondYear:"2021 - now",
+    jobSecondTitle:"Frontend Developer",
+    jobSecondCompany:"Adl Afarinan Mandegar co.",
+    jobSecondDesc:"Frontend developer at Adl Afarinan Mandegar, I'm still learning so I don't know what to say in this section bluh bluh bluh as usual",
+    educationalQualification:"Educational Qualification",
+    firstDegreeYear:"2012 - 2018",
+    firstDegree:"High School Diploma (Theoretical and Mathematical Physics)",
+    firstSchoolName:"National Organization for Development of Exceptional Talents (Sampad)",
+    firstLocation:"Iran , Saveh",
+    secondDegreeYear:"2019 - 2023",
+    secondDegree:"Bachelor's degree (Computer Engineering)",
+    secondSchoolName:"Kharazmi University",
+    secondLocation:"Iran , Karaj",
+
+
 
 }

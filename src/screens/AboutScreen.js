@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import theme from "../themes/theme";
 import {getTranslate} from "../localization";
 import Title from "../components/Title";
 import aboutMePic from "../assets/images/aboutMePic.jpg"
