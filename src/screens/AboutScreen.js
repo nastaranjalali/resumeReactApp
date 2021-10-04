@@ -102,7 +102,7 @@ function About() {
                     : {translate.iranian}
                 </Typography><Typography variant={"body1"} style={{marginBottom: 10}}>
                     <b className={classes.bold}>{translate.languages}</b>
-                    : {translate.persian}, {translate.english}, {translate.german},
+                    : {translate.persian}, {translate.english}, {translate.german}
                 </Typography><Typography variant={"body1"} style={{marginBottom: 10}}>
                     <b className={classes.bold}>{translate.phone}</b>
                     : (+98)9034066980
@@ -121,9 +121,7 @@ function About() {
                 <Service title={translate.webDesign} desc={translate.designDesc} icon={ <PaletteIcon className={classes.icon} />} />
                 <Service title={translate.webDevelopment} desc={translate.developDesc} icon={<CodeIcon className={classes.icon}/>}/>
                 <Service title={translate.mobileApplication} desc={translate.mobileAppDesc} icon={<PhoneIphoneIcon className={classes.icon}/>}/>
-
             </Grid>
-
         </Grid>
 
 

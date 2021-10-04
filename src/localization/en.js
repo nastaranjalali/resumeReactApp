@@ -3,7 +3,7 @@ export default {
     home: "HOME",
     about: "ABOUT",
     resume: "RESUME",
-    portfolios: "PORTFOLIOS",
+    portfolios: "PORTFOLIO",
     contact: "CONTACT",
     hi1: "Hi, I am ",
     hi2: "",
@@ -56,6 +56,19 @@ export default {
     secondDegree:"Bachelor's degree (Computer Engineering)",
     secondSchoolName:"Kharazmi University",
     secondLocation:"Iran , Karaj",
+    contactMe:"Contact Me",
+    getInTouch:"Get In Touch",
+    enterYourName:'Enter your name',
+    enterYourEmail:"Enter your Email",
+    enterYourSubject:"Enter your subject",
+    enterYourMessage:"Enter your message",
+    email:"Email",
+    address:"Address",
+    send:"Send Massage",
+    emailAddress:"nastaranjalalibusiness@gmail.com",
+    addressDesc:"Iran, Tehran",
+
+
 
 
 

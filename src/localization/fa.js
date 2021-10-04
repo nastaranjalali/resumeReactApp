@@ -43,6 +43,10 @@ export default {
     jobFirstTitle:"گیم مستر",
     jobFirstCompany:"گروه بردار",
     jobFirstDesc:"Game presenter in bordar group, I have mastered a lot of board games and I can win all of you ",
+    jobSecondYear:"1400 - حال",
+    jobSecondTitle:"توسعه دهنده سمت کاربر",
+    jobSecondCompany:"شرکت عدل آفرینان ماندگار",
+    jobSecondDesc:"Frontend developer at Adl Afarinan Mandegar, I'm still learning so I don't know what to say in this section bluh bluh bluh as usual",
     educationalQualification:"سوابق تحصیلی",
     firstDegreeYear:"1392 - 1398",
     firstDegree:"دیپلم رشته ریاضی و فیزیک",
@@ -52,6 +56,18 @@ export default {
     secondDegree:"کارشناسی مهندسی کامپیوتر",
     secondSchoolName:"دانشگاه خوارزمی",
     secondLocation:"ایران، کرج",
+    contactMe:"اطلاعات تماس",
+    getInTouch:"پیام بدهید",
+    enterYourName:'نام',
+    enterYourEmail:"ایمیل",
+    enterYourSubject:"موضوع پیام",
+    enterYourMessage:"متن پیام",
+    email:"ایمیل",
+    address:"آدرس",
+    send:"ارسال پیام",
+    emailAddress:"nastaranjalalibusiness@gmail.com",
+    addressDesc:"ایران, تهران",
+
 
 
 

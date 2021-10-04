@@ -6,14 +6,14 @@ import {makeStyles} from "@material-ui/core/styles";
 const useStyles = makeStyles({
     root: {
         width: "100%",
-        height: "20%",
+        height: "120px",
         display: "flex",
         justifyContent: "flex-start",
         position:"relative",
         marginBottom:40
     },
     title: {
-        margin: "80px 0 0 40px",
+        margin: "50px 0 0 40px",
 
 
         '&::before': {
@@ -59,7 +59,7 @@ function MenuItem(props) {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <Typography variant={"h3"} className={classes.title}>{props.text}</Typography>
+            <Typography variant={"h2"} className={classes.title}>{props.text}</Typography>
         </div>
 
     );
