@@ -1,6 +1,8 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
+import theme from "../themes/theme";
+import {getDirection} from "../localization";
 
 
 const useStyles = makeStyles({
@@ -14,8 +16,9 @@ const useStyles = makeStyles({
     },
     title: {
         margin: "50px 0 0 40px",
-
-
+        [theme.breakpoints.down("sm")]: {
+            fontSize: getDirection() === "rtl" ? 33 : 35,
+        },
         '&::before': {
             content: "''",
             width: "150px",

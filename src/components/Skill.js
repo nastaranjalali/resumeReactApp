@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {LinearProgress} from "@material-ui/core";
@@ -11,15 +11,15 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         flexDirection:"column",
         position:"relative",
-        padding:20
+        padding:"20px 40px"
     },
-    proggContainer:{
+    progressiveContainer:{
         display: "flex",
         width:"100%",
         alignItems:"center",
         justifyContent:"space-between"
     },
-    progg:{
+    progressive:{
         width:"80%",
         backgroundColor:"#37374e",
         alignItems:"center",
@@ -44,19 +44,17 @@ function Skill(props) {
                 return Math.min(oldProgress + diff, props.val);
             });
         }, 20);
-
         return () => {
             clearInterval(timer);
         };
     }, []);
 
-
     return (
         <div className={classes.root}>
             <Typography variant={"h6"} >{props.title}</Typography>
-            <div className={classes.proggContainer} >
+            <div className={classes.progressiveContainer} >
                 <Typography variant={"body1"} >{progress+"%"}</Typography>
-                <LinearProgress className={classes.progg} variant="determinate" value={progress} />
+                <LinearProgress className={classes.progressive} variant="determinate" value={progress} />
             </div>
         </div>
 

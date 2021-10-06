@@ -9,10 +9,10 @@ const theme = createTheme(
         spacing: 2.5,
         breakpoints: {
             values: {
-                xs: 0,
+                xs: 400,
                 sm: 700,
                 md: 900,
-                lg: 1200,
+                lg: 1250,
                 xl: 1536,
             },
         },
