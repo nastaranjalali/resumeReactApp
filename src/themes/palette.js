@@ -5,12 +5,9 @@ export default {
     },
     secondary:{
         main : "#e6e6e6"
-
     },
-    text:{
+    text: {
         primary: "#e6e6e6",
         secondary: "#0a0a1f"
     }
-
-
 }

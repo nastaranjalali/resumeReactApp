@@ -3,7 +3,6 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {Grid} from "@material-ui/core";
 
-
 const useStyles = makeStyles({
     root: {
         width: "100%",
@@ -17,7 +16,6 @@ const useStyles = makeStyles({
         cursor: "pointer",
         backfaceVisibility:"hidden",
         verticalAlign: "top",
-
 },
     title: {
         transition: "300ms",

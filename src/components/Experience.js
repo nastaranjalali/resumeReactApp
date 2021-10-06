@@ -5,7 +5,6 @@ import {Grid} from "@material-ui/core";
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import {getDirection} from "../localization";
 import theme from "../themes/theme";
-
 const useStyles = makeStyles({
     root: {
         width: "100%",
@@ -16,10 +15,8 @@ const useStyles = makeStyles({
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
             justifyContent: "flex-start",
-
         },
     },
-
     yearContainer: {
         display: "flex",
         alignItems: "flex-start",
@@ -32,7 +29,6 @@ const useStyles = makeStyles({
             left: 30,
             bottom: 0,
             borderRadius: 100,
-
         }
     },
     descContainer: {
@@ -63,13 +59,12 @@ const useStyles = makeStyles({
         },
         '&::before': {
             content: "''",
-            width: "30px",
+            width: 30,
             height: 1,
             backgroundColor: "#37374e",
             position: "absolute",
             top: 17,
             left: -40,
-            bottom: 0,
             borderRadius: "100px",
             [theme.breakpoints.down("sm")]: {
                 display: "none"
@@ -92,12 +87,8 @@ const useStyles = makeStyles({
         },
     },
 });
-
-
 function Experience(props) {
     const classes = useStyles()
-
-
     return (
         <Grid className={classes.root}>
             <Grid className={classes.yearContainer}>
@@ -109,11 +100,7 @@ function Experience(props) {
                 <Typography variant={"body1"} className={classes.company}>{props.company}</Typography>
                 <Typography variant={"body1"} className={classes.desc}>{props.desc}</Typography>
             </Grid>
-
-
         </Grid>
-
     );
 }
-
 export default Experience;

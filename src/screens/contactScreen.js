@@ -1,6 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import {getTranslate} from "../localization";
+import { getTranslate} from "../localization";
 import Title from "../components/Title";
 import {Button, Grid, TextField, Typography} from "@material-ui/core";
 import PhoneIcon from '@material-ui/icons/Phone';
@@ -8,8 +8,8 @@ import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import '../assets/CSS/contactMe.css'
 import InfoBox from "../components/InfoBox";
-import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
-import Service from "../components/Service";
+import theme from "../themes/theme";
+
 
 
 const useStyles = makeStyles({
@@ -35,11 +35,13 @@ const useStyles = makeStyles({
 
     },
     sendBtn: {
-        minWidth: "30%",
-        maxWidth: '40%',
+        maxWidth: "50%",
         padding: "10px 30px",
         marginLeft: 10,
         lineHeight: 2,
+        [theme.breakpoints.down("md")]: {
+            maxWidth: "100%",
+        },
         '&:hover': {
             backgroundColor: "rgba(191, 23, 77, 0.6)",
         }
@@ -105,10 +107,8 @@ function Contact() {
                         defaultValue=" "
                         variant="outlined"
                         placeholder={" "}
-
                     />
                     <Button variant="button" className={classes.sendBtn}>{translate.send}</Button>
-
                 </Grid>
                 <Grid xs={12} lg={6} className={classes.infoContainer}>
                     <InfoBox title={translate.phone} desc={["(+98)9034066980","(+98)9182576354"]}

@@ -2,8 +2,6 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {Grid} from "@material-ui/core";
-
-
 const useStyles = makeStyles({
     root: {
         padding:"0 20px"
@@ -21,7 +19,6 @@ const useStyles = makeStyles({
         transition:"300ms",
         "&:hover":{
             borderTop:"8px solid rgba(229,39,100,1)",
-
         }
     },
     infoContainer:{
@@ -35,10 +32,6 @@ const useStyles = makeStyles({
         paddingBottom:10,
         position:"relative",
     },
-    desc:{
-
-    }
-
 });
 
 function InfoBox(props) {
@@ -49,10 +42,9 @@ function InfoBox(props) {
                     {props.icon}
                 <Grid className={classes.infoContainer}>
                     <Typography variant={"h6"} className={classes.title} >{props.title}</Typography>
-                    <Typography variant={"body1"} className={classes.desc}>{props.desc[0]}</Typography>
-                    <Typography variant={"body1"} className={classes.desc}>{props.desc[1]}</Typography>
+                    <Typography variant={"body1"} >{props.desc[0]}</Typography>
+                    <Typography variant={"body1"} >{props.desc[1]}</Typography>
                 </Grid>
-
             </Grid>
         </Grid>
 

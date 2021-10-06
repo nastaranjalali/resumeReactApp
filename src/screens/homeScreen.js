@@ -1,12 +1,12 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import {IconButton, Typography} from "@material-ui/core";
-import styles from "../assets/CSS/bgEffect.css"
+import "../assets/CSS/bgEffect.css"
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import theme from "../themes/theme";
-import {getDirection, getTranslate} from "../localization";
+import {getTranslate} from "../localization";
 
 
 const useStyles = makeStyles({
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "center"
     },
-    title:{
+    title: {
         marginBottom: "15px",
 
     },
@@ -72,15 +72,26 @@ function Home() {
                 className={classes.name}>{translate.name}</span>{translate.hi2}</Typography>
             <Typography variant={"body1"} className={classes.desc}>{translate.homeDesc}</Typography>
             <div className={classes.btnContainer}>
-                <IconButton className={classes.iconBTN}>
-                    <LinkedInIcon className={classes.Icon}/>
-                </IconButton>
-                <IconButton className={classes.iconBTN}>
-                    <GitHubIcon className={classes.Icon}/>
-                </IconButton>
-                <IconButton className={classes.iconBTN}>
-                    <TelegramIcon className={classes.Icon}/>
-                </IconButton>
+                <a href="https://www.linkedin.com/in/nastaran-jalali-559722200/" target={"_blank"}>
+                    <IconButton className={classes.iconBTN}>
+                        <LinkedInIcon className={classes.Icon}/>
+                    </IconButton>
+                </a>
+
+                <a href="https://github.com/nastaranjalali" target={"_blank"} >
+
+                    <IconButton className={classes.iconBTN}>
+                        <GitHubIcon className={classes.Icon}/>
+                    </IconButton>
+                </a>
+
+                <a href="https://t.me/Notnastarann" target={"_blank"}>
+
+                    <IconButton className={classes.iconBTN}>
+                        <TelegramIcon className={classes.Icon}/>
+                    </IconButton>
+                </a>
+
             </div>
         </div>
 

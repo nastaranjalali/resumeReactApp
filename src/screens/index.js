@@ -41,9 +41,9 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         marginRight: theme.spacing(2),
-        zIndex:100,
-        borderRadius:2,
-        backgroundColor:"rgba(15,15,36,0.5)",
+        zIndex: 100,
+        borderRadius: 2,
+        backgroundColor: "rgba(15,15,36,0.5)",
         [theme.breakpoints.up('sm')]: {
             display: 'none',
         },
