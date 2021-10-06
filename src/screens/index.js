@@ -6,10 +6,7 @@ import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
-import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import profilePhoto from "../assets/images/profile.jpg"
 import {getTranslate, changeLang, lang} from "../localization";
@@ -19,7 +16,7 @@ import Home from './homeScreen';
 import About from './AboutScreen';
 import Resume from './resumeScreen';
 import Contact from './contactScreen';
-import styles from '../assets/CSS/index.css'
+import '../assets/CSS/index.css'
 import Portfolios from "./portfoliosScreen";
 import MenuItem from "../components/MenuItem";
 
@@ -44,11 +41,13 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         marginRight: theme.spacing(2),
+        zIndex:100,
+        borderRadius:2,
+        backgroundColor:"rgba(15,15,36,0.5)",
         [theme.breakpoints.up('sm')]: {
             display: 'none',
         },
     },
-    // necessary for content to be below app bar
     drawerPaper: {
         width: drawerWidth,
         backgroundColor: "#0f0f24",
@@ -56,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
     },
     topDrawer: {
         padding: "0 20px",
-        // height: "100%",
         borderBottom: "1px solid #37374e",
         textAlign: "center"
     },
@@ -76,7 +74,6 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
     },
     bottomDrawer: {
-        // borderTop: "1px solid #37374e",
         flexGrow: "1",
         display: "flex",
         flexDirection: "row",
@@ -86,22 +83,23 @@ const useStyles = makeStyles((theme) => ({
     button: {
         lineHeight: 1,
         borderRadius: 0,
-
         height: "35%"
     },
     inActiveButton: {
-        borderTop: "2px solid #37374e",
-        borderBottom: "2px solid #37374e",
+        borderBottomLeftRadius: 5,
+        borderTopLeftRadius: 5,
         '&:hover': {
             backgroundColor: "#0a0a1f",
         }
     },
     activeButton: {
         backgroundColor: "#e6e6e6",
+        borderBottomRightRadius: 5,
+        borderTopRightRadius: 5,
         color: "#0a0a1f",
         width: "50%",
         '&:hover': {
-            background: "#e52764",
+            background: "#0a0a1f",
             color: "#e6e6e6"
         }
     },
@@ -111,14 +109,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
 function ResponsiveDrawer(props) {
     const {window} = props;
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [page, setPage] = useState(0);
     const [changed, setChanged] = useState(true);
-
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -135,61 +131,57 @@ function ResponsiveDrawer(props) {
             setChanged((prev) => !prev)
         }, 300)
 
-    }, [page]) // <-- here put the parameter to listen
-
+    }, [page])
 
     const drawer = (
-            <>
-                <div className={classes.topDrawer}>
-                    <img src={profilePhoto} alt="" className={classes.profileImage}/>
-                </div>
-                <Divider/>
-                <div className={classes.mainDrawer}>
-                    <List style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "100%"
-                    }}>
-                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(0)} page={page}
-                                  text={translate.home} num={0}/>
-                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(1)} page={page}
-                                  text={translate.about} num={1}/>
-                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(2)} page={page}
-                                  text={translate.resume} num={2}/>
-                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(3)} page={page}
-                                  text={translate.portfolios} num={3}/>
-                        <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(4)} page={page}
-                                  text={translate.contact} num={4}/>
+        <>
+            <div className={classes.topDrawer}>
+                <img src={profilePhoto} alt="" className={classes.profileImage}/>
+            </div>
+            <Divider/>
+            <div className={classes.mainDrawer}>
+                <List style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "100%"
+                }}>
+                    <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(0)} page={page}
+                              text={translate.home} num={0}/>
+                    <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(1)} page={page}
+                              text={translate.about} num={1}/>
+                    <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(2)} page={page}
+                              text={translate.resume} num={2}/>
+                    <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(3)} page={page}
+                              text={translate.portfolios} num={3}/>
+                    <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(4)} page={page}
+                              text={translate.contact} num={4}/>
+                </List>
+            </div>
+            <div className={classes.bottomDrawer}>
+                <Button
+                    className={[classes.button, lang === 'en' ? classes.inActiveButton : classes.activeButton].join(' ')}
+                    onClick={() => changeLang("en")}
+                    endIcon={lang === "fa" ? <LanguageIcon/> : undefined}
+                >
+                    English
+                </Button>
+                <Button
 
-                    </List>
-                </div>
-                <div className={classes.bottomDrawer}>
-                    <Button
-
-                        className={[classes.button, lang === 'en' ? classes.inActiveButton : classes.activeButton].join(' ')}
-                        onClick={() => changeLang("en")}
-                        endIcon={lang === "fa" ? <LanguageIcon/> : undefined}
-                    >
-                        English
-                    </Button>
-                    <Button
-
-                        className={[classes.button, lang === 'fa' ? classes.inActiveButton : classes.activeButton].join(' ')}
-                        onClick={() => changeLang("fa")}
-                        endIcon={lang === "en" ? <LanguageIcon/> : undefined}
-                        style={{
-                            fontFamily: "IRANSans",
-                            letterSpacing: 0,
-                        }}
-                    >
-                        فارسی
-                    </Button>
-                </div>
-            </>
-        )
-    ;
+                    className={[classes.button, lang === 'fa' ? classes.inActiveButton : classes.activeButton].join(' ')}
+                    onClick={() => changeLang("fa")}
+                    endIcon={lang === "en" ? <LanguageIcon/> : undefined}
+                    style={{
+                        fontFamily: "IRANSans",
+                        letterSpacing: 0,
+                    }}
+                >
+                    فارسی
+                </Button>
+            </div>
+        </>
+    );
 
     const container = window !== undefined ? () => window().document.body : undefined;
     const changePage = () => {
@@ -206,15 +198,12 @@ function ResponsiveDrawer(props) {
                 return <Contact/>
             default:
                 return <Home/>
-
-
         }
     }
 
     return (
         <div className={classes.root}>
             <CssBaseline/>
-
             <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -230,11 +219,7 @@ function ResponsiveDrawer(props) {
             >
                 <MenuIcon/>
             </IconButton>
-            <Typography variant="h6" noWrap>
-
-            </Typography>
             <nav className={classes.drawer} aria-label="mailbox folders">
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Hidden smUp implementation="css">
                     <Drawer
                         container={container}
@@ -245,7 +230,7 @@ function ResponsiveDrawer(props) {
                             paper: classes.drawerPaper,
                         }}
                         ModalProps={{
-                            keepMounted: true, // Better open performance on mobile.
+                            keepMounted: true,
                         }}
                     >
                         {drawer}
@@ -267,11 +252,9 @@ function ResponsiveDrawer(props) {
                 appear: 500,
                 enter: 300,
                 exit: 0,
-            }} >
+            }}>
                 <main className={classes.content} style={{padding: 0}}>
-
                     {changePage()}
-
                 </main>
             </Fade>
         </div>
@@ -279,10 +262,6 @@ function ResponsiveDrawer(props) {
 }
 
 ResponsiveDrawer.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
     window: PropTypes.func,
 };
 

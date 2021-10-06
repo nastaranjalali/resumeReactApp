@@ -7,6 +7,15 @@ const theme = createTheme(
         palette: palette,
         direction: getDirection(),
         spacing: 2.5,
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 700,
+                md: 900,
+                lg: 1200,
+                xl: 1536,
+            },
+        },
         typography: {
             h1: {
                 fontWeight: 700,
@@ -54,7 +63,8 @@ const theme = createTheme(
                 fontFamily: getFonts(),
                 fontSize: getDirection()==="rtl"?20:22,
                 lineHeight: "1.81rem",
-                color:"#63637e"
+                color:"#63637e",
+
             },
             body2: {
                 fontWeight: 600,

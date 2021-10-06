@@ -4,6 +4,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {Grid, LinearProgress} from "@material-ui/core";
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import {getDirection} from "../localization";
+import theme from "../themes/theme";
 
 const useStyles = makeStyles({
     root: {
@@ -11,7 +12,11 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "flex-start",
         position:"relative",
-        padding:20
+        padding:20,
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+            justifyContent:"flex-start"
+        },
     },
 
     yearContainer:{
@@ -26,6 +31,7 @@ const useStyles = makeStyles({
             left:30,
             bottom:0,
             borderRadius:"100px",
+
         }
     },
     descContainer:{
@@ -34,7 +40,14 @@ const useStyles = makeStyles({
         flexDirection:"column",
         marginLeft:140,
         position:"relative",
-        width:"70%"
+        width:"70%",
+        [theme.breakpoints.down("md")]: {
+            marginLeft:40,
+        },
+        [theme.breakpoints.down("sm")]: {
+            marginLeft:30,
+
+        },
 
     },
     icon:{
@@ -53,6 +66,10 @@ const useStyles = makeStyles({
             left:-40,
             bottom:0,
             borderRadius:"100px",
+            [theme.breakpoints.down("sm")]: {
+                display: "none"
+            },
+
         }
     },
     company:{
