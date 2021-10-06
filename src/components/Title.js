@@ -4,15 +4,14 @@ import {makeStyles} from "@material-ui/core/styles";
 import theme from "../themes/theme";
 import {getDirection} from "../localization";
 
-
 const useStyles = makeStyles({
     root: {
         width: "100%",
         height: "120px",
         display: "flex",
         justifyContent: "flex-start",
-        position:"relative",
-        marginBottom:40
+        position: "relative",
+        marginBottom: 40
     },
     title: {
         margin: "50px 0 0 40px",
@@ -23,38 +22,28 @@ const useStyles = makeStyles({
             content: "''",
             width: "150px",
             height: "5px",
-            backgroundColor:"#e52764",
-            position:"absolute",
-            top:"auto",
-            left:0,
-            bottom:0,
+            backgroundColor: "#e52764",
+            position: "absolute",
+            top: "auto",
+            left: 0,
+            bottom: 0,
             margin: "30px 0 0 50px",
-            borderRadius:"100px",
-
-
-
+            borderRadius: "100px",
         },
-        '&:hover':{
-
-
+        '&:hover': {
             '&::before': {
                 content: "''",
                 width: "180px",
                 height: "5px",
-                backgroundColor:"#e52764",
-                position:"absolute",
-                top:"auto",
-                left:0,
-                bottom:0,
+                backgroundColor: "#e52764",
+                position: "absolute",
+                top: "auto",
+                left: 0,
+                bottom: 0,
                 margin: "30px 0 0 35px",
-                borderRadius:"100px",
-
-
-
+                borderRadius: "100px",
             }
-
         }
-
     }
 });
 
