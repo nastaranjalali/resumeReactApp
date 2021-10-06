@@ -67,7 +67,7 @@ function Contact() {
     return (
         <Grid className={classes.root}>
             <Title text={translate.contact}/>
-            <Grid container direction={"row"} className={classes.sectionContainer}>
+            <Grid container direction={"row"} >
                 <Grid xs={12} lg={6} className={classes.formContainer}>
                     <Typography variant={"h4"} className={classes.title}>{translate.getInTouch}</Typography>
                     <TextField
