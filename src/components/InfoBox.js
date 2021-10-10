@@ -2,9 +2,9 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {Grid} from "@material-ui/core";
+import {lang} from "../localization";
 const useStyles = makeStyles({
     root: {
-        padding:"0 20px"
     },
     service:{
         width:"100%",
@@ -22,6 +22,7 @@ const useStyles = makeStyles({
         }
     },
     infoContainer:{
+        width:"100%",
         display:"flex",
         flexDirection:"column",
         justifyContent:"space-around",
@@ -32,6 +33,12 @@ const useStyles = makeStyles({
         paddingBottom:10,
         position:"relative",
     },
+    desc:{
+        maxWidth:"100%",
+        textAlign:"left",
+        wordWrap:"break-word",
+        wordBreak:"break-all"
+    }
 });
 
 function InfoBox(props) {
@@ -42,8 +49,14 @@ function InfoBox(props) {
                     {props.icon}
                 <Grid className={classes.infoContainer}>
                     <Typography variant={"h6"} className={classes.title} >{props.title}</Typography>
-                    <Typography variant={"body1"} >{props.desc[0]}</Typography>
-                    <Typography variant={"body1"} >{props.desc[1]}</Typography>
+                    <a href={props.type[0]}>
+                        <Typography variant={"body1"} className={classes.desc} >
+                            {props.desc[0]}</Typography>
+                    </a>
+                   <a href={props.type[0]}>
+                       <Typography variant={"body1"} className={classes.desc}>{props.desc[1]}</Typography>
+
+                   </a>
                 </Grid>
             </Grid>
         </Grid>

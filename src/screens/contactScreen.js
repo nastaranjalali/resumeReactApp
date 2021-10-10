@@ -19,6 +19,7 @@ const useStyles = makeStyles({
 
     },
     formContainer: {
+        width:"100%",
         display: "flex",
         justifyContent: "flex-start",
         flexDirection: "column",
@@ -26,17 +27,17 @@ const useStyles = makeStyles({
         paddingRight: 40,
     },
     title: {
+        width:"100%",
         textAlign: "left",
         marginBottom: 10,
         marginLeft: 10,
     },
     input: {
+        width:"100%",
         margin: 10,
-
     },
     sendBtn: {
         maxWidth: "50%",
-        padding: "10px 30px",
         marginLeft: 10,
         lineHeight: 2,
         [theme.breakpoints.down("md")]: {
@@ -47,6 +48,7 @@ const useStyles = makeStyles({
         }
     },
     infoContainer: {
+        width:"100%",
         display: "flex",
         flexDirection: "column",
         marginTop:55
@@ -111,11 +113,11 @@ function Contact() {
                     <Button variant="button" className={classes.sendBtn}>{translate.send}</Button>
                 </Grid>
                 <Grid xs={12} lg={6} className={classes.infoContainer}>
-                    <InfoBox title={translate.phone} desc={["(+98)9034066980","(+98)9182576354"]}
+                    <InfoBox type={["tel:+989034066980","tel:+989182576354"]} title={translate.phone} desc={["(+98)9034066980","(+98)9182576354"]}
                              icon={<PhoneIcon className={classes.icon}/>}/>
-                    <InfoBox title={translate.email} desc={[translate.emailAddress]}
+                    <InfoBox type={["mailto:"+translate.emailAddress]} title={translate.email} desc={[translate.emailAddress]}
                              icon={<EmailIcon className={classes.icon}/>}/>
-                    <InfoBox title={translate.address} desc={[translate.addressDesc]}
+                    <InfoBox type={["https://www.google.de/maps/place/Tehran,+Tehran+Province,+Iran/@35.6967329,51.2097325,11z/data=!3m1!4b1!4m5!3m4!1s0x3f8e00491ff3dcd9:0xf0b3697c567024bc!8m2!3d35.6891975!4d51.3889736"]} title={translate.address} desc={[translate.addressDesc]}
                              icon={<LocationOnIcon className={classes.icon}/>}/>
                 </Grid>
             </Grid>
