@@ -18,7 +18,10 @@ import Resume from './resumeScreen';
 import Contact from './contactScreen';
 import '../assets/CSS/index.css'
 import Portfolios from "./portfoliosScreen";
-import MenuItem from "../components/MenuItem";
+import { Switch, Route, NavLink} from 'react-router-dom';
+import ListItemText from "@material-ui/core/ListItemText";
+import Typography from "@material-ui/core/Typography";
+import ListItem from "@material-ui/core/ListItem";
 
 const drawerWidth = 260;
 const translate = getTranslate()
@@ -82,20 +85,15 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         lineHeight: 1,
-        borderRadius: 0,
         height: "35%"
     },
     inActiveButton: {
-        borderBottomLeftRadius: 5,
-        borderTopLeftRadius: 5,
         '&:hover': {
             backgroundColor: "#0a0a1f",
         }
     },
     activeButton: {
         backgroundColor: "#e6e6e6",
-        borderBottomRightRadius: 5,
-        borderTopRightRadius: 5,
         color: "#0a0a1f",
         width: "50%",
         '&:hover': {
@@ -107,13 +105,25 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
+    listItemStyles: {
+        position: "relative",
+        paddingLeft: 0,
+        paddingRight: 0,
+        backgroundColor: "transparent"
+    },
+    listStyles: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%"
+    }
 }));
 
 function ResponsiveDrawer(props) {
     const {window} = props;
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [page, setPage] = useState(0);
     const [changed, setChanged] = useState(true);
 
     const handleDrawerToggle = () => {
@@ -122,16 +132,13 @@ function ResponsiveDrawer(props) {
     const setMobileOpenFalse = () => {
         setMobileOpen(false)
     }
-    const setNewPage = (num) => {
-        setPage(num)
-    }
-    useEffect(() => {
-        setChanged((prev) => !prev)
-        setTimeout(function () {
-            setChanged((prev) => !prev)
-        }, 300)
-
-    }, [page])
+    // useEffect(() => {
+    //     setChanged((prev) => !prev)
+    //     setTimeout(function () {
+    //         setChanged((prev) => !prev)
+    //     }, 300)
+    //
+    // }, [page])
 
     const drawer = (
         <>
@@ -140,42 +147,88 @@ function ResponsiveDrawer(props) {
             </div>
             <Divider/>
             <div className={classes.mainDrawer}>
-                <List style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "100%"
-                }}>
-                    <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(0)} page={page}
-                              text={translate.home} num={0}/>
-                    <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(1)} page={page}
-                              text={translate.about} num={1}/>
-                    <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(2)} page={page}
-                              text={translate.resume} num={2}/>
-                    <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(3)} page={page}
-                              text={translate.portfolios} num={3}/>
-                    <MenuItem mobileFunc={setMobileOpenFalse} pageFunc={() => setNewPage(4)} page={page}
-                              text={translate.contact} num={4}/>
+                <List className={classes.listStyles}>
+                    <ListItem component={NavLink} to={"/"}
+                              exact
+                              activeStyle={{backgroundColor: "#e52764"}}
+                              onClick={() => {
+                                  setMobileOpenFalse();
+                              }} className={"listItem " + classes.listItemStyles} button>
+                        <ListItemText disableTypography={true} children={
+                            <Typography variant="body2">{translate.home}</Typography>
+                        }/>
+                        <div className={"overlay"}/>
+
+                    </ListItem>
+                    <ListItem component={NavLink} to={"/about-me"}
+                              exact
+                              activeStyle={{backgroundColor: "#e52764"}}
+                              onClick={() => {
+                                  setMobileOpenFalse();
+                              }} className={"listItem " + classes.listItemStyles} button>
+                        <ListItemText disableTypography={true} children={
+                            <Typography variant="body2">{translate.about}</Typography>
+                        }/>
+                        <div className={"overlay"}/>
+
+                    </ListItem>
+                    <ListItem component={NavLink} to={"/resume"}
+                              exact
+                              activeStyle={{backgroundColor: "#e52764"}}
+                              onClick={() => {
+                                  setMobileOpenFalse();
+                              }} className={"listItem " + classes.listItemStyles} button>
+                        <ListItemText disableTypography={true} children={
+                            <Typography variant="body2">{translate.resume}</Typography>
+                        }/>
+                        <div className={"overlay"}/>
+
+                    </ListItem>
+                    <ListItem component={NavLink} to={"/portfolio"}
+                              exact
+                              activeStyle={{backgroundColor: "#e52764"}}
+                              onClick={() => {
+                                  setMobileOpenFalse();
+                              }} className={"listItem " + classes.listItemStyles} button>
+                        <ListItemText disableTypography={true} children={
+                            <Typography variant="body2">{translate.portfolios}</Typography>
+                        }/>
+                        <div className={"overlay"}/>
+
+                    </ListItem>
+                    <ListItem component={NavLink} to={"/contact-me"}
+                              exact
+                              activeStyle={{backgroundColor: "#e52764"}}
+                              onClick={() => {
+                                  setMobileOpenFalse();
+                              }} className={"listItem " + classes.listItemStyles} button>
+                        <ListItemText disableTypography={true} children={
+                            <Typography variant="body2">{translate.contactMe}</Typography>
+                        }/>
+                        <div className={"overlay"}/>
+
+                    </ListItem>
+
                 </List>
             </div>
             <div className={classes.bottomDrawer}>
                 <Button
                     className={[classes.button, lang === 'en' ? classes.inActiveButton : classes.activeButton].join(' ')}
+                    style={lang === 'en' ? {borderRadius:"5px 0 0 5px"} : {borderRadius:"0 5px 5px 0"}}
                     onClick={() => changeLang("en")}
                     endIcon={lang === "fa" ? <LanguageIcon/> : undefined}
                 >
                     English
                 </Button>
                 <Button
-
                     className={[classes.button, lang === 'fa' ? classes.inActiveButton : classes.activeButton].join(' ')}
                     onClick={() => changeLang("fa")}
                     endIcon={lang === "en" ? <LanguageIcon/> : undefined}
-                    style={{
-                        fontFamily: "IRANSans",
-                        letterSpacing: 0,
-                    }}
+                    style={
+                        lang === 'en' ? {borderRadius:"0 5px 5px 0",fontFamily: "IRANSans",
+                            letterSpacing: 0,} : {borderRadius:"5px 0 0 5px",fontFamily: "IRANSans",
+                            letterSpacing: 0,}
+                    }
                 >
                     فارسی
                 </Button>
@@ -184,22 +237,6 @@ function ResponsiveDrawer(props) {
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
-    const changePage = () => {
-        switch (page) {
-            case 0:
-                return <Home/>
-            case 1:
-                return <About/>
-            case 2:
-                return <Resume/>
-            case 3:
-                return <Portfolios/>
-            case 4:
-                return <Contact/>
-            default:
-                return <Home/>
-        }
-    }
 
     return (
         <div className={classes.root}>
@@ -254,7 +291,23 @@ function ResponsiveDrawer(props) {
                 exit: 0,
             }}>
                 <main className={classes.content} style={{padding: 0}}>
-                    {changePage()}
+                    <Switch>
+                        <Route path={"/"} exact>
+                            <Home/>
+                        </Route>
+                        <Route path={"/about-me"} exact>
+                            <About/>
+                        </Route>
+                        <Route path={"/resume"} exact>
+                            <Resume/>
+                        </Route>
+                        <Route path={"/portfolio"} exact>
+                            <Portfolios/>
+                        </Route>
+                        <Route path={"/contact-me"} exact>
+                            <Contact/>
+                        </Route>
+                    </Switch>
                 </main>
             </Fade>
         </div>
