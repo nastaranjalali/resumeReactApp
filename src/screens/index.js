@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -10,7 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import {makeStyles} from '@material-ui/core/styles';
 import profilePhoto from "../assets/images/profile.jpg"
 import {getTranslate, changeLang, lang} from "../localization";
-import {Button, Fade} from "@material-ui/core";
+import {Button} from "@material-ui/core";
 import LanguageIcon from '@material-ui/icons/Language';
 import Home from './homeScreen';
 import About from './AboutScreen';
@@ -123,7 +123,6 @@ function ResponsiveDrawer(props) {
     const {window} = props;
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [changed, setChanged] = useState(true);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -284,11 +283,11 @@ function ResponsiveDrawer(props) {
                     </Drawer>
                 </Hidden>
             </nav>
-            <Fade in={changed} timeout={{
-                appear: 500,
-                enter: 300,
-                exit: 0,
-            }}>
+            {/*<Fade in={changed} timeout={{*/}
+            {/*    appear: 500,*/}
+            {/*    enter: 300,*/}
+            {/*    exit: 0,*/}
+            {/*}}>*/}
                 <main className={classes.content} style={{padding: 0}}>
                     <Switch>
                         <Route path={"/"} exact>
@@ -308,7 +307,7 @@ function ResponsiveDrawer(props) {
                         </Route>
                     </Switch>
                 </main>
-            </Fade>
+            {/*</Fade>*/}
         </div>
     );
 }
