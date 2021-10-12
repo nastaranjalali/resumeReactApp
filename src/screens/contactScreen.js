@@ -23,22 +23,26 @@ const useStyles = makeStyles({
         display: "flex",
         justifyContent: "flex-start",
         flexDirection: "column",
-        paddingLeft: 40,
-        paddingRight: 40,
+        paddingLeft: 20,
+        paddingRight: 20,
     },
     title: {
         width:"100%",
         textAlign: "left",
-        marginBottom: 10,
-        marginLeft: 10,
+        paddingBottom: 10,
+        paddingLeft: 10,
     },
     input: {
         width:"100%",
-        margin: 10,
+        paddingRight:10,
+        paddingLeft:10,
+        marginTop:10,
+        marginBottom:10
     },
     sendBtn: {
         maxWidth: "50%",
         marginLeft: 10,
+        marginRight: 10,
         lineHeight: 2,
         [theme.breakpoints.down("md")]: {
             maxWidth: "100%",
@@ -51,7 +55,9 @@ const useStyles = makeStyles({
         width:"100%",
         display: "flex",
         flexDirection: "column",
-        marginTop:55
+        marginTop:55,
+        paddingLeft: 20,
+        paddingRight: 20,
 
     },
     icon: {

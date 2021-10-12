@@ -7,9 +7,7 @@ import {getDirection} from "../localization";
 
 
 const useStyles = makeStyles({
-    root: {
-        paddingLeft: 10
-    },
+
     service: {
         width: "100%",
         padding: 20,

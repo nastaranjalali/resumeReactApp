@@ -9,6 +9,7 @@ import PaletteIcon from "@material-ui/icons/Palette";
 import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
 import CodeIcon from "@material-ui/icons/Code";
 import theme from "../themes/theme";
+import CVFile from "../assets/cv.jpg"
 
 const useStyles = makeStyles({
   root: {
@@ -95,7 +96,7 @@ function About() {
   const onDownload = () => {
     const link = document.createElement("a");
     link.download = `cv.jpg`;
-    link.href = "../../public/files/cv.jpg";
+    link.href = CVFile;
     link.click();
   };
   return (

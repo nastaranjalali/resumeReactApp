@@ -25,7 +25,6 @@ import ListItem from "@material-ui/core/ListItem";
 
 const drawerWidth = 260;
 const translate = getTranslate()
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',

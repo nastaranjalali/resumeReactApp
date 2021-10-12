@@ -3,8 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {Grid} from "@material-ui/core";
 const useStyles = makeStyles({
-    root: {
-    },
+
     service:{
         width:"100%",
         height:120,
@@ -43,7 +42,7 @@ const useStyles = makeStyles({
 function InfoBox(props) {
     const classes = useStyles()
     return (
-        <Grid container  className={classes.root}>
+        <Grid container>
             <Grid className={classes.service}>
                     {props.icon}
                 <Grid className={classes.infoContainer}>
